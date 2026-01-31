@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-outfit: 'Outfit', system-ui, sans-serif;
+  --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-outfit);
+  background: #0a0a0a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FF006E 0%, #FB5607 25%, #FFBE0B 50%, #8338EC 75%, #FF006E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-x 5s linear infinite;
+}
+
+.gradient-text-pink {
+  background: linear-gradient(135deg, #FF006E 0%, #FF4D8D 50%, #FF006E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-pink {
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.4), 0 0 60px rgba(255, 0, 110, 0.2);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(131, 56, 236, 0.4), 0 0 60px rgba(131, 56, 236, 0.2);
+}
+
+.glow-orange {
+  box-shadow: 0 0 30px rgba(251, 86, 7, 0.4), 0 0 60px rgba(251, 86, 7, 0.2);
+}
+
+/* Animated background */
+.bg-mesh {
+  background: 
+    radial-gradient(at 40% 20%, rgba(255, 0, 110, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(131, 56, 236, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(251, 86, 7, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(255, 190, 11, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(131, 56, 236, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(255, 0, 110, 0.1) 0px, transparent 50%),
+    #0a0a0a;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #FF006E 0%, #FB5607 100%);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(255, 0, 110, 0.4);
+}
+
+/* Counter animation */
+.counter-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Stagger animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Input styles */
+input[type="email"], input[type="text"], textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+input[type="email"]:focus, input[type="text"]:focus, textarea:focus {
+  outline: none;
+  border-color: #FF006E;
+  box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.2);
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Challenge card colors */
+.day-monday { --day-color: #22C55E; }
+.day-tuesday { --day-color: #3B82F6; }
+.day-wednesday { --day-color: #EC4899; }
+.day-thursday { --day-color: #A855F7; }
+.day-friday { --day-color: #F59E0B; }
+.day-saturday { --day-color: #EF4444; }
+.day-sunday { --day-color: #FFD700; }
+
+/* Countdown styles */
+.countdown-box {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+}
+
+/* Share button hover effects */
+.share-btn {
+  transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+  transform: scale(1.1);
+}
+
+.share-btn.twitter:hover { color: #1DA1F2; }
+.share-btn.linkedin:hover { color: #0A66C2; }
+.share-btn.whatsapp:hover { color: #25D366; }
+.share-btn.copy:hover { color: #FF006E; }
